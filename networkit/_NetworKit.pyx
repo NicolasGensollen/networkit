@@ -306,6 +306,7 @@ cdef extern from "<networkit/graph/Graph.hpp>":
 		_Graph(const _Graph& other) except +
 		_Graph(const _Graph& other, bool_t weighted, bool_t directed) except +
 		void indexEdges(bool_t) except +
+		void shrinkToFit() except +
 		bool_t hasEdgeIds() except +
 		edgeid edgeId(node, node) except +
 		count numberOfNodes() except +
@@ -606,6 +607,12 @@ cdef class Graph:
 	 		The number of nodes.
 		"""
 		return self._this.numberOfNodes()
+
+	def shrinkToFit(self):
+		"""
+
+		"""
+		return self._this.shrinkToFit()
 
 	def numberOfEdges(self):
 		"""
